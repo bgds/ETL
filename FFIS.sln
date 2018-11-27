@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "FFIS", "FFIS.dtproj", "{491890AB-4941-4D17-9E52-23800B8F1ADA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{491890AB-4941-4D17-9E52-23800B8F1ADA}.Development|Default.ActiveCfg = Development
+		{491890AB-4941-4D17-9E52-23800B8F1ADA}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4217FFDF-C9EE-4887-B4AE-C72B7EA7D7A8}
+	EndGlobalSection
+EndGlobal

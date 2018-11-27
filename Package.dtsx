@@ -1,0 +1,780 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/29/2018 9:13:14 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ATLANTIS-PC"
+  DTS:CreatorName="Atlantis-PC\Atlantis"
+  DTS:DTSID="{824B37AC-C9A8-455E-A072-62A57B6D50D7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.92"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{57E5A127-FA06-4934-934F-8C5CC99EF538}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ATLANTIS-PC\XSQL.BigData]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{847612C4-8336-4BAD-AF9E-230001FD7CD7}"
+      DTS:ObjectName="ATLANTIS-PC\XSQL.BigData">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=ATLANTIS-PC\XSQL;Initial Catalog=BigData;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Target DataSourceCM]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="ETL Flate File"
+      DTS:DTSID="{C3BCD776-5BF3-4824-927E-664D7C4FAE1D}"
+      DTS:ObjectName="Target DataSourceCM">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::target_var]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="A"
+              DTS:DTSID="{EF87AC65-ADB2-4982-8BCD-FFBF5A700D10}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="B"
+              DTS:DTSID="{6EDCBE62-9E8C-4857-848F-F0D4092E0606}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="C"
+              DTS:DTSID="{0B1B6148-D9A1-4F39-BFAE-AF0BC5930ECF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="D"
+              DTS:DTSID="{62302B5E-8EEA-4E35-A96A-4883AE29F35E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x0009_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="E"
+              DTS:DTSID="{DB3CCA70-DE72-475E-9107-2B79D7D7EB78}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="F"
+              DTS:DTSID="{1404EA75-9A0C-4C4C-AFB4-67CD06720037}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D171A2A0-B25D-4164-BAB6-6790E3231990}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="target_var">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{503C2FF1-606F-4233-8601-E91BF2554D90}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{36E093E2-2F5B-43A9-B59A-8151893482B9}"
+        DTS:ObjectName="{36E093E2-2F5B-43A9-B59A-8151893482B9}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\Atlantis\source\repos\FFIS" />
+            <FEFEProperty
+              FileSpec="*.txt" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7C532ABA-9030-4A97-974E-62105ACBA24C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{847612C4-8336-4BAD-AF9E-230001FD7CD7}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE  OutPut_data" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop\Import Target Data"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{CF164426-3332-46B5-BCF3-8F2DF23CCA29}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Import Target Data"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop\Import Target Data\Target data"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Target data"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[OutPut_data]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop\Import Target Data\Target data.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[ATLANTIS-PC\XSQL.BigData]"
+                      connectionManagerRefId="Package.ConnectionManagers[ATLANTIS-PC\XSQL.BigData]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].Columns[A]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="A"
+                          externalMetadataColumnId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].ExternalColumns[A]"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[A]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].Columns[B]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="B"
+                          externalMetadataColumnId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].ExternalColumns[B]"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[B]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].Columns[C]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="C"
+                          externalMetadataColumnId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].ExternalColumns[C]"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[C]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].Columns[D]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="D"
+                          externalMetadataColumnId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].ExternalColumns[D]"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[D]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].Columns[E]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="E"
+                          externalMetadataColumnId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].ExternalColumns[E]"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[E]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].Columns[F]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="F"
+                          externalMetadataColumnId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].ExternalColumns[F]"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[F]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].ExternalColumns[A]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="A" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].ExternalColumns[B]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="B" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].ExternalColumns[C]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="C" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].ExternalColumns[D]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="D" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].ExternalColumns[E]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="E" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input].ExternalColumns[F]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="F" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop\Import Target Data\Target data.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop\Import Target Data\Target source data"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Target source data"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop\Import Target Data\Target source data.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Target DataSourceCM]"
+                      connectionManagerRefId="Package.ConnectionManagers[Target DataSourceCM]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[A]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].ExternalColumns[A]"
+                          length="50"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[A]"
+                          name="A"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[B]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].ExternalColumns[B]"
+                          length="50"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[B]"
+                          name="B"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[C]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].ExternalColumns[C]"
+                          length="50"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[C]"
+                          name="C"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[D]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].ExternalColumns[D]"
+                          length="50"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[D]"
+                          name="D"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[E]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].ExternalColumns[E]"
+                          length="50"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[E]"
+                          name="E"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[F]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].ExternalColumns[F]"
+                          length="50"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].Columns[F]"
+                          name="F"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].ExternalColumns[A]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="A" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].ExternalColumns[B]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="B" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].ExternalColumns[C]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="C" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].ExternalColumns[D]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="D" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].ExternalColumns[E]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="E" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output].ExternalColumns[F]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="F" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop\Import Target Data.Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop\Import Target Data\Target data.Inputs[OLE DB Destination Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop\Import Target Data\Target source data.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{D796234E-B5C2-4C62-85D5-8B604C4BCF3C}"
+          DTS:ObjectName="{D796234E-B5C2-4C62-85D5-8B604C4BCF3C}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::target_var" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{307D8A2F-8568-452B-A5C9-A0E20BA69D37}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{847612C4-8336-4BAD-AF9E-230001FD7CD7}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE OutPut_data" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C414D53B-C168-4A05-85E0-454931D89681}"
+      DTS:From="Package\Truncate Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Foreach Loop\Import Target Data"
+          TopLeft="12,4" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Foreach Loop\Execute SQL Task"
+          TopLeft="17,48" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,145"
+          Size="205,188"
+          Id="Package\Foreach Loop"
+          TopLeft="64,131" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Truncate Table"
+          TopLeft="79,54" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="155,96">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.5,35"
+              Start="0,0"
+              End="11.5,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="7.5,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.5,17.5"
+                    Point2="11.5,17.5"
+                    Point3="11.5,21.5" />
+                  <mssgle:LineSegment
+                    End="11.5,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop\Import Target Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Foreach Loop\Import Target Data\Target source data"
+          TopLeft="209,60" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Foreach Loop\Import Target Data\Target data"
+          TopLeft="194,146" />
+        <EdgeLayout
+          Id="Package\Foreach Loop\Import Target Data.Paths[Flat File Source Output]"
+          TopLeft="294,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32,44"
+              Start="0,0"
+              End="-32,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18"
+                    Point2="0,22"
+                    Point3="-4,22" />
+                  <mssgle:LineSegment
+                    End="-28,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-28,22"
+                    Point2="-32,22"
+                    Point3="-32,26" />
+                  <mssgle:LineSegment
+                    End="-32,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop\Import Target Data\Target data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
